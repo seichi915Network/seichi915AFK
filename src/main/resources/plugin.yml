@@ -1,0 +1,26 @@
+name: Seichi915AFK
+version: 1.0.0
+main: net.seichi915.seichi915afk.Seichi915AFK
+api-version: "1.13"
+load: STARTUP
+authors: [stouma915]
+description: "seichi915Network AFKプラグイン"
+website: https://www.seichi915.net
+commands:
+  afk:
+    description: AFK
+    usage: /afk
+    permission: seichi915afk.command.afk
+    permission-message: "§c権限が不足しています。"
+permissions:
+  seichi915afk.*:
+    description: Grant all permissions of seichi915AFK
+    children:
+      seichi915afk.command.*: true
+  seichi915afk.command.*:
+    description: Grant all command permission of seichi915AFK
+    children:
+      seichi915afk.command.afk: true
+  seichi915afk.command.afk:
+    description: Permission to use /afk
+    default: true
