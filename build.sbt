@@ -1,5 +1,5 @@
 ThisBuild / scalaVersion := "2.13.4"
-ThisBuild / version := "1.0.0"
+ThisBuild / version := "1.0.1"
 ThisBuild / description := "seichi915Network AFKプラグイン"
 
 resolvers ++= Seq(

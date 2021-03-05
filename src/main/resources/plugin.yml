@@ -1,5 +1,5 @@
 name: Seichi915AFK
-version: 1.0.0
+version: 1.0.1
 main: net.seichi915.seichi915afk.Seichi915AFK
 api-version: "1.13"
 load: STARTUP
