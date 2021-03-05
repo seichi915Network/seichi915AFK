@@ -10,6 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.scheduler.BukkitRunnable
 
 import scala.collection.mutable
+import scala.jdk.CollectionConverters._
 
 object Seichi915AFK {
   var instance: Seichi915AFK = _
@@ -90,6 +91,15 @@ class Seichi915AFK extends JavaPlugin {
   }
 
   override def onDisable(): Unit = {
+    getServer.getOnlinePlayers.asScala.foreach { player =>
+      if (Seichi915AFK.afkPlayers.contains(player)) {
+        player.setPlayerListName(Seichi915AFK.originalUsernames(player))
+        Seichi915AFK.afkPlayers = Seichi915AFK.afkPlayers.filterNot(
+          _.getUniqueId.toString.equalsIgnoreCase(player.getUniqueId.toString))
+        Seichi915AFK.originalUsernames.remove(player)
+      }
+    }
+
     getLogger.info("seichi915AFKが無効になりました。")
   }
 }
